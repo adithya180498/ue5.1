@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app12
+  namespace: argocd
+  labels:
+    app: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: ue
+          image: 547123922677.dkr.ecr.ap-south-1.amazonaws.com/argocd:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
